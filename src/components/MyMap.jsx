@@ -29,8 +29,8 @@ function MapUpdater({ lat, lng }) {
 
 function MyMap({ lat, lng }) {
   // Default Location to render the Map
-  const lt = lat || 31.2341;
-  const lg = lng || 29.9683;
+  const lt = lat || 30.0131;
+  const lg = lng || 31.2089;
 
   return (
     // Basic Map Container
