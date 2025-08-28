@@ -41,12 +41,21 @@
   width: 80%;
   padding: 15px 20px;
   font-size: 18px;
+  font-weight: 500;
   border: none;
   border-radius: 15px 0 0 15px;
   outline: none;
   background-color: white;
   color: var(--darkGray);
   box-shadow: 1px 0px 15px rgba(0, 0, 0, 0.4);
+}
+.search input:focus {
+  border: 3px solid var(--gray);
+  border-right: none;
+}
+.search input:focus + button {
+  border: 3px solid var(--gray);
+  border-left: none;
 }
 .search input::placeholder {
   color: var(--gray);
@@ -63,6 +72,13 @@
 }
 .search button:hover {
   background-color: var(--darkGray);
+}
+/* Above 1440px reduce search bar width */
+@media (min-width: 1440px) {
+  .search-input {
+    max-width: 80%;
+    margin: auto;
+  }
 }
 @media (max-width: 600px) {
   .container {
@@ -99,7 +115,14 @@
   font-weight: 500;
   font-size: 1.2rem;
 }
+.no-data.active {
+  color: rgb(233, 58, 58);
+}
 .location-info div {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
   flex: 1 1 175px;
   border-right: 1px solid hsl(0, 0%, 59%);
   padding: 0.25rem;
@@ -118,6 +141,17 @@
   font-weight: bold;
   text-align: left;
 }
+.leaflet-container {
+  height: calc(100vh - 260px) !important;
+  width: 100%;
+}
+.leaflet-control-container {
+  position: absolute;
+  bottom: 90px;
+  transform: translateX(-50%);
+  z-index: 1000;
+}
+
 @media (max-width: 1130px) {
   .location-info {
     padding: 1.25rem;
@@ -146,7 +180,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-      top: -70px;
+    top: -70px;
   }
   .location-info div {
     flex: none;
@@ -155,9 +189,7 @@
   .location-info div:nth-child(3) {
     border: none !important;
   }
-}
-
-.leaflet-container {
-  height: calc(100vh - 270px) !important;
-  width: 100%;
+  .leaflet-container {
+    height: calc(100vh - 230px) !important;
+  }
 }

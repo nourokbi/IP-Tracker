@@ -12,13 +12,13 @@ function ViewLocation({ locationData }) {
             </div>
             <div>
               <h3>Location</h3>
-              <span>{`${locationData.location.city}, ${
-                locationData.location.country
-              }, ${
-                locationData.location.postalCode
+              <span>
+                {`${locationData.location.city}, ${locationData.location.country},`}
+                <br />
+                {locationData.location.postalCode
                   ? locationData.location.postalCode
-                  : "No ZIP Provided"
-              }`}</span>
+                  : "No ZIP Provided"}
+              </span>
             </div>
             <div>
               <h3>TimeZone</h3>
@@ -29,12 +29,14 @@ function ViewLocation({ locationData }) {
               <span>
                 {locationData.location.isp
                   ? locationData.location.isp
-                  : "No ISP Provided"}
+                  : `No ISP Provided`}
               </span>
             </div>
           </>
         ) : (
-          <p>No location data available, Search for an IP address</p>
+          <p className="no-data">
+            No location data available, Search for an IP address
+          </p>
         )}
       </div>
     </div>

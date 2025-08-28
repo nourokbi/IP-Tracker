@@ -2,6 +2,8 @@
 import { useState } from "react";
 import arrowIcon from "../assets/icon-arrow.svg";
 function Search({ onSearch, setIpAddress, ipAddress }) {
+  
+
   return (
     <div className="search">
       <div className="container">
@@ -10,7 +12,9 @@ function Search({ onSearch, setIpAddress, ipAddress }) {
           <input
             type="text"
             value={ipAddress}
-            onChange={(e) => setIpAddress(e.target.value)}
+            onChange={(e) => {
+              setIpAddress(e.target.value);
+            }}
             placeholder="Search for any IP address or domain"
           />
           <button onClick={(e) => onSearch(e)}>
