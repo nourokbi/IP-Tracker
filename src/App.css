@@ -184,6 +184,7 @@
     top: -70px;
   }
   .location-info div {
+    align-items: center;
     flex: none;
     border: none;
   }
