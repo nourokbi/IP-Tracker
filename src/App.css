@@ -188,6 +188,9 @@
     flex: none;
     border: none;
   }
+  br {
+    display: none;
+  }
   .location-info div:nth-child(3) {
     border: none !important;
   }

@@ -13,11 +13,11 @@ function ViewLocation({ locationData }) {
             <div>
               <h3>Location</h3>
               <span>
-                {`${locationData.location.city}, ${locationData.location.country},`}
+                {`${locationData.location.city}, ${locationData.location.country}, `}
                 <br />
                 {locationData.location.postalCode
                   ? locationData.location.postalCode
-                  : "No ZIP Provided"}
+                  : " No ZIP Provided"}
               </span>
             </div>
             <div>
