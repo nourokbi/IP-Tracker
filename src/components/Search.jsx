@@ -20,6 +20,7 @@ function Search({ onSearch, setIpAddress, ipAddress }) {
           <button onClick={(e) => onSearch(e)}>
             <img src={arrowIcon} alt="arrow" />
           </button>
+          <p>Please enter a valid IP address or domain</p>
         </div>
       </div>
     </div>

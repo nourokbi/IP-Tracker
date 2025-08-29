@@ -1,10 +1,12 @@
 import React from "react";
 
-function ViewLocation({ locationData }) {
+function ViewLocation({ locationData, isLoading }) {
   return (
     <div className="container">
       <div className="location-info">
-        {locationData ? (
+        {isLoading ? (
+          <p className="loading">Loading...</p>
+        ) : locationData ? (
           <>
             <div>
               <h3>IP Address</h3>

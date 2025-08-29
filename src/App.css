@@ -73,6 +73,16 @@
 .search button:hover {
   background-color: var(--darkGray);
 }
+.search-input p {
+  display: none;
+  color: rgb(240, 144, 144);
+  padding: 5px 0;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+.search-input.error p {
+  display: block;
+}
 /* Above 1440px reduce search bar width */
 @media (min-width: 1440px) {
   .search-input {
@@ -98,7 +108,7 @@
   color: hsl(0, 0%, 17%);
   padding: 1.75rem 1.5rem;
   position: absolute;
-  top: -80px;
+  top: -70px;
   left: 50%;
   z-index: 1000;
   display: flex;
@@ -111,13 +121,15 @@
   transform: translateX(-50%);
   box-shadow: 2px 2px 25px rgba(0, 0, 0, 0.2);
 }
+.location-info .loading {
+  font-size: 2rem;
+  font-weight: bold;
+  align-self: center;
+}
 .location-info p {
   align-self: center;
   font-weight: 500;
   font-size: 1.2rem;
-}
-.no-data.active {
-  color: rgb(233, 58, 58);
 }
 .location-info div {
   display: flex;
@@ -176,12 +188,15 @@
   :root {
     font-size: 14px;
   }
+  input::placeholder {
+    font-size: 14px;
+  }
   .location-info {
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    top: -70px;
+    top: -60px;
   }
   .location-info div {
     align-items: center;
