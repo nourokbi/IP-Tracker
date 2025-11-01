@@ -1,5 +1,11 @@
 import { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Tooltip, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Tooltip,
+  useMap,
+} from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import markerIcon from "../assets/icon-location.svg";
@@ -24,7 +30,7 @@ const createCustomIcon = (isDark) => {
     </svg>
   `;
 
-  const svgUrl = isDark 
+  const svgUrl = isDark
     ? `data:image/svg+xml;base64,${btoa(brightMarkerSvg)}`
     : markerIcon;
 
@@ -58,9 +64,10 @@ function MyMap({ lat, lng, locationData, darkMode }) {
 
   // Light mode tile layer (default OpenStreetMap)
   const lightTileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
-  
+
   // Dark mode tile layer (CartoDB Dark Matter)
-  const darkTileUrl = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+  const darkTileUrl =
+    "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
   // Create marker icon based on theme
   const customIcon = createCustomIcon(darkMode);
@@ -69,7 +76,7 @@ function MyMap({ lat, lng, locationData, darkMode }) {
   const getLocationText = () => {
     if (locationData) {
       const { city, region, country } = locationData.location || {};
-      return `${city || 'Unknown'}, ${region || ''} ${country || ''}`.trim();
+      return `${city || "Unknown"}, ${region || ""} ${country || ""}`.trim();
     }
     return "Default Location (Cairo, Egypt)";
   };
@@ -84,16 +91,16 @@ function MyMap({ lat, lng, locationData, darkMode }) {
     >
       {/* Map Updater to handle location changes */}
       <MapUpdater lat={lat} lng={lng} />
-      
+
       {/* Tile Layer - switches based on dark mode */}
-      <TileLayer 
+      <TileLayer
         url={darkMode ? darkTileUrl : lightTileUrl}
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      
+
       {/* Marker for the current location */}
-      <Marker 
-        icon={customIcon} 
+      <Marker
+        icon={customIcon}
         position={[lt, lg]}
         ref={markerRef}
         eventHandlers={{
@@ -103,10 +110,12 @@ function MyMap({ lat, lng, locationData, darkMode }) {
         }}
       >
         <Tooltip permanent={false} direction="top" offset={[0, -40]}>
-          <div style={{ textAlign: 'center', fontWeight: '500' }}>
+          <div style={{ textAlign: "center", fontWeight: "500" }}>
             <div>{getLocationText()}</div>
             {locationData?.ip && (
-              <div style={{ fontSize: '0.9em', color: '#666', marginTop: '4px' }}>
+              <div
+                style={{ fontSize: "0.9em", color: "#666", marginTop: "4px" }}
+              >
                 IP: {locationData.ip}
               </div>
             )}
