@@ -155,6 +155,9 @@ body.dark-mode .theme-toggle {
   border: 3px solid var(--gray);
   border-left: none;
 }
+.search .search-input {
+  margin-left: 150px;
+} 
 .search input::placeholder {
   color: var(--gray);
 }
@@ -554,8 +557,8 @@ body.dark-mode .export-btn {
   }
 }
 @media (max-width: 600px) {
-  .search-input {
-    margin-left: 20px;
+  .search .search-input {
+    margin-left: 0px;
   }
   :root {
     font-size: 14px;
